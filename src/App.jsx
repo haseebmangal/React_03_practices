@@ -594,47 +594,75 @@ import './App.css'
 
 // 2i : continue 2h and use ternary operator
 
-function ProductDetails({ name, imageSrc, price, discountPrice }){
-  // const name = props.name;
-  // const {name} = props;
-  // const price = props.price;
-  // const {price} = props;
+// function ProductDetails({ name, imageSrc, price, discountPrice }){
+//   // const name = props.name;
+//   // const {name} = props;
+//   // const price = props.price;
+//   // const {price} = props;
+//   return(
+//     <div style={{
+//       border: '1px solid white',
+//       borderRadius: 5,
+//       padding : 10,
+//       width: 300,
+//       marginBottom: 10,
+
+//     }}>
+//       <img src={imageSrc} alt={name} width="150" />
+//       <h2>{ name }</h2>
+      
+//       {/* <h2>price: ${ price }</h2>
+//       {discountPrice && <h2><del>price: ${price}</del></h2>} {
+//         <h2> Discount Price: ${discountPrice}</h2>
+//       } */}
+//       {discountPrice ? (
+//         <>
+//           <h2><del>Price: ${price}</del></h2>
+//           <h2>Discount Price: ${discountPrice}</h2>
+//         </>
+//       ) : (
+//         <h2>Price: ${price}</h2>
+//       )}
+
+//       <button>Add to Cart</button>
+//     </div>
+//   );
+// }
+
+// export default function App(){
+//   return(
+//     <>
+//       <ProductDetails name="Cotton Socks"  price = "10.90" discountPrice = "5.45" imageSrc= "./src/assets/cotton-socks.png" />
+//       <ProductDetails name="Tennis balls" price = "6.00" imageSrc= "./src/assets/tennis-balls.png"/>
+//       <ProductDetails name="T-Shirt" price = "7.99" discountPrice = "3.99" imageSrc="./src/assets/plain-t-shirt.png" />
+//     </>
+//   )
+// }
+
+// Lesson 3 exercises
+// 3a: create a button the text " clicked ) times", display "Clicked in the consile.
+
+function MyButton(){
+  const [count, setCount] = useState(0);
+  function handleClick(){
+    console.log("Clicked");
+    setCount(count + 1);
+  }
   return(
-    <div style={{
+    <button style={{
       border: '1px solid white',
       borderRadius: 5,
       padding : 10,
-      width: 300,
-      marginBottom: 10,
-
-    }}>
-      <img src={imageSrc} alt={name} width="150" />
-      <h2>{ name }</h2>
-      
-      {/* <h2>price: ${ price }</h2>
-      {discountPrice && <h2><del>price: ${price}</del></h2>} {
-        <h2> Discount Price: ${discountPrice}</h2>
-      } */}
-      {discountPrice ? (
-        <>
-          <h2><del>Price: ${price}</del></h2>
-          <h2>Discount Price: ${discountPrice}</h2>
-        </>
-      ) : (
-        <h2>Price: ${price}</h2>
-      )}
-
-      <button>Add to Cart</button>
-    </div>
-  );
+      fontSize: 16,
+      cursor: 'pointer',
+      fontWeight: 'bold',
+    }}
+    onClick={handleClick}>Clicked {count} times</button>  
+  )
 }
 
-export default function App(){
+export default function ClickCounter(){
   return(
-    <>
-      <ProductDetails name="Cotton Socks"  price = "10.90" discountPrice = "5.45" imageSrc= "./src/assets/cotton-socks.png" />
-      <ProductDetails name="Tennis balls" price = "6.00" imageSrc= "./src/assets/tennis-balls.png"/>
-      <ProductDetails name="T-Shirt" price = "7.99" discountPrice = "3.99" imageSrc="./src/assets/plain-t-shirt.png" />
-    </>
+    <MyButton/>
   )
 }
